@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Articles</h1>
+
+<div id="articles">
+  <% @articles.each do |article| %>
+    <%= render article %>
+    <p>
+      <%= link_to "Show this article", article %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New article", new_article_path %>
+
+<button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+<script type="module">
+  console.log('in module section');
+  // import { bootstrap } from "bootstrap";
+  import * as bootstrap from "bootstrap";
+
+  // const bs = new bootstrap();
+  // console.log(bootstrap.Popover);
+
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  console.log(popoverTriggerList);
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    console.log(bootstrap);
+    return new bootstrap.Popover(popoverTriggerEl);
+  })
+</script>
